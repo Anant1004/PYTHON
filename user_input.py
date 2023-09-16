@@ -4,4 +4,4 @@ if(a==1):
 elif(a==2):
     print("two")
 else:
-    print("fuck you")
+    print("Wrong you")

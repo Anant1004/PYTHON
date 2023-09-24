@@ -1,24 +1,25 @@
-# Write a python program to translate a message into secret code language. Use the rules below to translate normal English into secret code language
-# Coding:
-# if the word contains atleast 3 characters, remove the first letter and append it at the end
-#   now append three random characters at the starting and the end
-# else:
-#   simply reverse the string
-# Decoding:
-# if the word contains less than 3 characters, reverse it
-# else:
-#   remove 3 random characters from start and end. Now remove the last letter and append it to the beginning
-# Your program should ask whether you want to code or decode
 import random
+import string
 
-def reverse (word):
-    rev_word = word[::-1]
+word = "anant"
+
+def Encrypt_message (word):
+    random_chars = ''.join(random.choice(string.ascii_letters)for _ in range(3))
+    word =  random_chars + word[1:] + word[0] + random_chars
     return word
+
+def reverse(word):
+    return word[1:] + word[0]
+
+
 def code (word):
-    if(len(word)<= 3):
-        reverse(word)
-        return word
+    if(len(word)>= 3):
+         return Encrypt_message(word)
     else:
-        first_letter = word[0]
-        word = word[1:]+first_letter
-        
+         return reverse(word)
+
+input_from_user =input("Enter the secret message for ( ENCRYPTION ) : ")
+Words_process = input_from_user.split()
+Encoded_words = [code(word) for word in Words_process]
+Encoded_sentece = ' '.join(Encoded_words)
+print(f"your encoded statement is : {Encoded_sentece}")

@@ -15,7 +15,7 @@ if(coding):
       nwords.append(word[::-1])
   print(" ".join(nwords))
 
-else:
+else: 
   nwords = []
   for word in words:
     if(len(word)>=3): 
